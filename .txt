@@ -1,0 +1,3 @@
+concurrency, memory management, design patterns, and best practices for writing clean and maintainable code
+
+software design patterns and architectural principles (like MVC, microservices
