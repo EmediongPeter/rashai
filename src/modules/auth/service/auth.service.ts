@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConsoleLogger, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
@@ -37,12 +37,12 @@ export class AuthService {
         const password = await argon.hash(user.password);
         user.password = password;
 
-        // const eventObject = new NewUserEvent();
-        // eventObject.user = user;
+        const eventObject = new NewUserEvent();
+        eventObject.user = user;
 
         await user.save();
 
-        // this.eventEmitter.emit('user.new', eventObject);
+        this.eventEmitter.emit('user.new', eventObject);
 
         return this.signToken(user);
       })
@@ -90,12 +90,12 @@ export class AuthService {
           googleId: dto.googleId,
         });
 
-        // const eventObject = new NewUserEvent();
-        // eventObject.user = user;
+        const eventObject = new NewUserEvent();
+        eventObject.user = user;
 
         await user.save();
 
-        // this.eventEmitter.emit('user.new', eventObject);
+        this.eventEmitter.emit('user.new', eventObject);
 
         return this.signToken(user);
       })

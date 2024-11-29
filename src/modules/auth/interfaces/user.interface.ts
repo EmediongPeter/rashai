@@ -5,6 +5,5 @@ export interface IUser {
   phone?: string;
   fullname?: string;
   avatar?: string;
-  type?: number;
   id?: Types.ObjectId;
 }

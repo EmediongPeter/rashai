@@ -9,6 +9,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './modules/auth/module/auth.module';
 import routes from './route';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { UserProfileModule } from '@/profile/user.profile.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
     EventEmitterModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGODB_URI),
     AuthModule,
+    UserProfileModule,
     routes,
   ],
   controllers: [AppController],

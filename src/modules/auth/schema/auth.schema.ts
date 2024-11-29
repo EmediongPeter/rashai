@@ -17,9 +17,6 @@ export class User {
   })
   email: string;
 
-  @Prop({ type: Number, default: 0 })
-  type: number;
-
   @Prop({ type: String })
   password: string;
 
